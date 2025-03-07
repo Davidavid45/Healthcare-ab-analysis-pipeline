@@ -11,7 +11,7 @@ This project demonstrates the ability to work with **DBT, Snowflake, and Airflow
 - **Pandas & SciPy** – For statistical analysis in Jupyter Notebook
 
 ## 📂 Project Structure
-├── 📂 data_pipeline/
+  ├── 📂 data_pipeline/
 │   ├── 📂 models/
 │   │   ├── 📂 staging/              # Staging tables
 │   │   ├── 📂 intermediate/         # Intermediate transformations
@@ -32,6 +32,7 @@ This project demonstrates the ability to work with **DBT, Snowflake, and Airflow
 │   ├── 📄 claims_analysis.sql        # SQL for claims transformations
 │
 └── 📄 README.md                      # Project documentation                        
+
 
 ├── data_pipeline/
 │   ├── models/
