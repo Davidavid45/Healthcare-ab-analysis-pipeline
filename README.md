@@ -12,7 +12,6 @@ This project demonstrates the ability to work with **DBT, Snowflake, and Airflow
 
 ## 📂 Project Structure
 
-📦 healthcare_claims_pipeline
 ├── 📂 data_pipeline/
 │   ├── 📂 models/
 │   │   ├── 📂 staging/              # Staging tables
