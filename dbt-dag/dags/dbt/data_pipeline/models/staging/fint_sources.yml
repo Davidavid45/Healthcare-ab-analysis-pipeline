@@ -1,0 +1,127 @@
+version: 2
+
+sources:
+  - name: finthrive_healthcare
+    database: HOSPITAL_CLAIMS__REMITS_DATA  # Confirm in Snowflake
+    schema: ISTG  # Adjusted to ISTG where data resides
+    tables:
+      - name: CLAIMDETAIL
+        description: "Detailed hospital claims data from FinThrive."
+        columns:
+          - name: CLAIM_ID
+            description: "Unique identifier for each claim."
+            tests:
+              - not_null
+              - unique
+          - name: PATIENT_ID
+            description: "Identifier linking to the patient."
+            tests:
+              - not_null
+          - name: PROVIDER_ID
+            description: "Identifier linking to the provider."
+            tests:
+              - not_null
+          - name: CLAIM_DATE
+            description: "Date when the claim was made."
+            tests:
+              - not_null
+          - name: CLAIM_AMOUNT
+            description: "Monetary amount of the claim."
+            tests:
+              - not_null
+          
+      - name: CLAIMCHARGEDETAIL
+        description: "Charge details for each claim."
+        columns:
+          - name: CLAIMID
+            description: "Identifier linking charge details to a claim."
+            tests:
+              - not_null
+          - name: CHARGEID
+            description: "Unique charge identifier."
+            tests:
+              - not_null
+              - unique
+          - name: CHARGEREVENUECODE
+            description: "Revenue code associated with the charge."
+          - name: CHARGEAMOUNT
+            description: "Amount for the specific charge."
+
+      - name: FACILITYDETAIL
+        description: "Details of the hospitals or facilities submitting claims."
+        columns:
+          - name: FACILITY_ID
+            description: "Unique identifier for the facility."
+            tests:
+              - not_null
+              - unique
+          - name: FACILITY_NAME
+            description: "Name of the healthcare facility."
+          - name: STATE
+            description: "State where the facility is located."
+
+      - name: PROCEDUREDETAIL
+        description: "Details about procedures performed in the claims."
+        columns:
+          - name: PROCEDURE_ID
+            description: "Unique identifier for the procedure."
+            tests:
+              - not_null
+              - unique
+          - name: CLAIM_ID
+            description: "Claim identifier associated with the procedure."
+            tests:
+              - not_null
+          - name: PROCEDURE_CODE
+            description: "Procedure code used for billing."
+
+      - name: CPTDETAIL
+        description: "CPT (Current Procedural Terminology) codes for services."
+        columns:
+          - name: CPT_CODE
+            description: "Unique CPT code for a medical service."
+            tests:
+              - not_null
+          - name: CLAIM_ID
+            description: "Claim identifier associated with the CPT code."
+            tests:
+              - not_null
+          - name: SERVICE_DESCRIPTION
+            description: "Description of the medical service."
+
+      - name: DIAGNOSISDETAIL
+        description: "Diagnosis information associated with claims."
+        columns:
+          - name: CLAIM_ID
+            description: "Claim identifier associated with the diagnosis."
+            tests:
+              - not_null
+          - name: DIAGNOSIS_CODE
+            description: "ICD (International Classification of Diseases) code."
+            tests:
+              - not_null
+          - name: DIAGNOSIS_DESCRIPTION
+            description: "Description of the diagnosis."
+
+      - name: EOBDETAIL
+        description: "Explanation of Benefits (EOB) details."
+        columns:
+          - name: CLAIM_ID
+            description: "Claim identifier associated with the EOB."
+            tests:
+              - not_null
+          - name: EOBREMARKCODE
+            description: "Remark codes from the insurance company."
+          - name: PAYMENT_AMOUNT
+            description: "Amount paid by the insurer."
+
+      - name: EOBREMARKCODEDETAIL
+        description: "Explanation of Benefit Remark Codes."
+        columns:
+          - name: REMARKCODE
+            description: "Unique code for explanation of benefits."
+            tests:
+              - not_null
+              - unique
+          - name: DESCRIPTION
+            description: "Description of the remark code."

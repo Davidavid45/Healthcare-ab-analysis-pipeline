@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: int_claims_summary
+    tests:
+      - unique:
+          column_name: claim_id
+      - not_null:
+          column_name: claim_id
+    columns:
+      - name: claim_id
+        description: "Unique identifier for each claim."
+
+  - name: int_claims_cost_summary
+    tests:
+      - not_null:
+          column_name: claim_id
+    columns:
+      - name: total_charge_amount
+        tests:
+          - not_null
+      - name: total_paid_amount
+        tests:
+          - not_null
+
+  - name: int_patient_conditions
+    tests:
+      - not_null:
+          column_name: claim_id
+    columns:
+      - name: total_diagnoses
+        tests:
+          - not_null
+
+  - name: int_procedures_performed
+    tests:
+      - not_null:
+          column_name: claim_id
+    columns:
+      - name: total_procedures
+        tests:
+          - not_null
+
+  - name: int_a_b_test_data
+    tests:
+      - not_null:
+          column_name: claim_id
+    columns:
+      - name: test_group
+        tests:
+          - not_null
