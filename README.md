@@ -10,51 +10,7 @@ This project demonstrates the ability to work with **DBT, Snowflake, and Airflow
 - **Python (Snowpark)** – For analytical processing in Snowflake
 - **Pandas & SciPy** – For statistical analysis in Jupyter Notebook
 
-## 📂 Project Structure
-  ├── 📂 data_pipeline/
-│   ├── 📂 models/
-│   │   ├── 📂 staging/              # Staging tables
-│   │   ├── 📂 intermediate/         # Intermediate transformations
-│   │   ├── 📂 marts/                # Final transformed data marts
-│   │   ├── 📄 dbt_project.yml       # DBT configuration
-│   ├── 📂 seeds/                    # Seed data for DBT
-│   ├── 📂 tests/                    # DBT tests
-│   ├── 📂 macros/                   # Reusable DBT macros
-│
-├── 📂 airflow_dags/                  # Airflow DAGs for ETL orchestration
-│   ├── 📄 dbt_dag.py                 # DAG that runs DBT models
-│   ├── 📂 dependencies/              # Airflow dependencies
-│
-├── 📂 notebooks/                     # Jupyter Notebooks for analysis
-│   ├── 📄 A_B_ANALYSIS.ipynb          # A/B testing results
-│
-├── 📂 sql_queries/                   # SQL queries for Snowflake
-│   ├── 📄 claims_analysis.sql        # SQL for claims transformations
-│
-└── 📄 README.md                      # Project documentation                        
 
-
-├── data_pipeline/
-│   ├── models/
-│   │   ├── staging/             # Staging tables
-│   │   ├── intermediate/        # Intermediate transformations
-│   │   ├── marts/               # Final transformed data marts
-│   │   ├── dbt_project.yml      # DBT configuration
-│   ├── seeds/                   # Seed data for DBT
-│   ├── tests/                   # DBT tests
-│   ├── macros/                   # Reusable DBT macros
-│
-├── airflow_dags/                # Airflow DAGs for ETL orchestration
-│   ├── dbt_dag.py               # DAG that runs DBT models
-│   ├── dependencies/            # Airflow dependencies
-│
-├── notebooks/                   # Jupyter Notebooks for analysis
-│   ├── A_B_ANALYSIS.ipynb       # A/B testing results
-│
-├── sql_queries/                 # SQL queries for Snowflake
-│   ├── claims_analysis.sql      # SQL for claims transformations
-│
-└── README.md                    # Project documentation
 
 ## 📊 A/B Testing Analysis
 **Objective:**  
